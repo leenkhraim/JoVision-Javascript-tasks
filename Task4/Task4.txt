@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Click Task 2</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        button {
+            font-size: 2rem; 
+            padding: 15px 30px; 
+            border: none;
+            border-radius: 8px;
+            background-color: #FF69B4; 
+            color: white; 
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #C71585;
+        }
+    </style>
+</head>
+<body>
+	<button onclick="calculateSum()">Click Me!</button>
+
+    <script>
+        function calculateSum() {
+            const array = [];
+            // Fill the array with numbers from 0 to 100
+            for (let i = 0; i <= 100; i++) {
+                array.push(i);
+            }
+
+            // Calculate the sum
+            let sum = 0;	
+            for (let i = 0; i < array.length; i++) {
+                sum += array[i]; // Add each number to sum
+            }
+
+            // Print the sum to the console
+            console.log('Sum:', sum);
+        }
+    </script>
+
+</body>
+</html>
