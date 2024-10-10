@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task #11</title>
+  <style>
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    button {
+        font-size: 2rem; 
+        padding: 15px 30px; 
+        border: none;
+        border-radius: 8px;
+        background-color: #FF69B4; 
+        color: white; 
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #C71585;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="ipButton" onclick="button1()">Get IP</button>
+
+   <script>
+        function button1() {
+            const button = document.getElementById('ipButton');
+            fetch("https://api.ipify.orgx") // Changed to an invalid URL for testing errors
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('URL Not Found'); //error message for debugging purposes
+                    }//will jump to the nearest catch block
+                    return response.text(); // parse as text
+                })
+                .then(data => {
+                    button.textContent = data; // replace button text with IP address
+                })
+                .catch(error => {  //catches thrown errors
+                    alert('Error fetching IP! ' + error.message); // show alert on error
+                    console.error('Error:', error); //logs error in console
+                });
+        }
+    </script> 
+</body>
+</html>
