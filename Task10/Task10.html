@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task #10</title>
+  <style>
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    button {
+        font-size: 2rem; 
+        padding: 15px 30px; 
+        border: none;
+        border-radius: 8px;
+        background-color: #FF69B4; 
+        color: white; 
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #C71585;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="ipButton" onclick="button1()">Get IP</button>
+
+  <script>
+    function button1() {
+const button = document.getElementById('ipButton'); //define button
+      fetch("https://api.ipify.org") // plain text response
+        .then(response => response.text()) // parse as text
+        .then(data => {
+                    button.textContent = data; // replace button text with IP address
+                });   
+}
+  </script>
+</body>
+</html>
