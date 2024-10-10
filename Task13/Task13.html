@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 13</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        input {
+            font-size: 1.2rem;
+            margin: 10px;
+            padding: 10px;
+            border: 2px solid #FF69B4;
+            border-radius: 5px;
+        }
+
+        button {
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #FF69B4;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #C71585;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="name" placeholder="Name" required>
+    <button onclick="fetchAge()">Submit</button>
+ <script>
+        async function fetchAge() { 
+            const nameInput = document.getElementById('name').value;
+            const apiUrl = `https://api.agify.io?name=${encodeURIComponent(nameInput)}`; //encodes in correct format
+
+            try {
+                const response = await fetch(apiUrl); 
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json(); //pause execution until json format completed
+                const { name, age } = data; //destructing, now name and age has name and age the was recieved in data
+
+                alert(`Your name is: ${name}\nYour age is: ${age}`);
+            } catch (error) {
+                alert('An error occurred while fetching the age.');
+                console.error('Error fetching age:', error);
+            }
+        }
+    </script>
+</body>
+</html>
