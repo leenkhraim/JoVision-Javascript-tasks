@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        input {
+            font-size: 1.2rem;
+            margin: 10px;
+            padding: 10px;
+            border: 2px solid #FF69B4;
+            border-radius: 5px;
+        }
+
+        button {
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #FF69B4;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #C71585;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="text" id="name" placeholder="Name" required> 
+
+    <input type="number" id="age" placeholder="Age" required> 
+
+    <button onclick="submitForm()">Submit</button> 
+
+
+    <script>
+        function submitForm() { //submitForm() function
+            const nameEntered = document.getElementById('name').value; // Gets name value once entered
+            const ageEntered = document.getElementById('age').value; // Gets age value once entered
+            const currentTimestamp = new Date().toLocaleString(); // Get current date and time
+
+            // Create the object
+            const newObject = {
+                name: nameEntered,
+                age: ageEntered,
+                timestamp: currentTimestamp
+            };
+
+            // Show the popup
+            alert(`Your name is: ${newObject.name}\nYour age is: ${newObject.age}\nTimestamp: ${newObject.timestamp}`);
+        }
+         //or alert("Your name is: " + newObject.name + 
+         //"\nYour age is: " + newObject.age + 
+         //"\nTimestamp: " + newObject.timestamp);
+    </script>
+</body>
+</html>
